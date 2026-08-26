@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rushiprasad Badgar · Product Portfolio</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Google Font (Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- Reset & Base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fafafa;
+      color: #1e1e1e;
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+      padding: 2.5rem 2.5rem 3rem;
+    }
+
+    /* ----- Navigation ----- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 1rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: -0.5px;
+      color: #111;
+    }
+    .logo span {
+      color: #2563eb;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* ----- Hero (UPDATED INTRO) ----- */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-text {
+      flex: 2;
+      min-width: 280px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      letter-spacing: -1px;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #4b5563;
+      max-width: 650px;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-text .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #2563eb;
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .hero-text .cta:hover {
+      background: #1d4ed8;
+    }
+
+    .hero-avatar {
+      flex: 1;
+      min-width: 150px;
+      text-align: center;
+    }
+    .hero-avatar img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #e5e7eb;
+      border: 4px solid white;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+    .avatar-placeholder {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3.5rem;
+      font-weight: 600;
+      margin: 0 auto;
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.2);
+    }
+
+    /* ----- Sections ----- */
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-title i {
+      color: #2563eb;
+      font-size: 1.6rem;
+    }
+
+    /* Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: #f9fafb;
+      padding: 1.5rem 1.8rem;
+      border-radius: 1.2rem;
+      transition: transform 0.15s, box-shadow 0.15s;
+      border: 1px solid #f0f0f0;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .card .subtitle {
+      font-size: 0.85rem;
+      color: #6b7280;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .card .subtitle .date {
+      background: #e5e7eb;
+      padding: 0.1rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #374151;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .card ul li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: #1f2937;
+    }
+    .card ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #eef2ff;
+      color: #2563eb;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.7rem;
+      border-radius: 30px;
+      margin-right: 0.3rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .skill-group {
+      margin-bottom: 1.2rem;
+    }
+    .skill-group h4 {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #374151;
+      margin-bottom: 0.4rem;
+    }
+    .skill-group .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .skill-group .tags span {
+      background: white;
+      border: 1px solid #e5e7eb;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1f2937;
+    }
+
+    .achievement-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.8rem 1.5rem;
+    }
+    .achievement-list li {
+      list-style: none;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .achievement-list li i {
+      color: #2563eb;
+      width: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      margin-top: 0.5rem;
+    }
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #1f2937;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      transition: border 0.2s;
+    }
+    .contact-links a:hover {
+      border-bottom-color: #2563eb;
+      color: #2563eb;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 1.5rem;
+      }
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Rushiprasad <span>Badgar</span></div>
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section (UPDATED WITH YOUR EXACT INTRO) -->
+  <div class="hero">
+    <div class="hero-text">
+      <!-- Your chosen intro starts here -->
+      <h1>Greetings! I'm Rushiprasad Badgar.</h1>
+      <p>
+        I am a B.Tech Mechanical Engineering undergraduate at IIT Guwahati with a strong inclination toward startups, product strategy, and management consulting. My experience spans both product and data science—having worked as a Product Management Intern at Skyline Engineering and a Data Science Intern at Codec Technologies—giving me a unique ability to frame business problems through both qualitative user research and quantitative validation.
+      </p>
+      <!-- Your intro ends here -->
+      <a href="#contact" class="cta"><i class="fas fa-paper-plane"></i> Let's Connect</a>
+    </div>
+    <div class="hero-avatar">
+      <div class="avatar-placeholder">RB</div>
+    </div>
+  </div>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Product Management Intern</h3>
+        <div class="subtitle">Skyline Engineering, Pune <span class="date">Apr–May 2026</span></div>
+        <ul>
+          <li>Interviewed 25+ dealers to uncover awareness gaps and barriers for 3D wall panels.</li>
+          <li>Prioritised high‑construction zones using an effort‑impact framework.</li>
+          <li>Proposed POS demo kits and materials to boost dealer conversion.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Data Science Intern</h3>
+        <div class="subtitle">Codec Technologies (Remote) <span class="date">Jul–Aug 2026</span></div>
+        <ul>
+          <li>Built a sentiment‑monitoring pipeline on Hacker News data (collection → evaluation).</li>
+          <li>Benchmarked lexicon vs. transformer models; RoBERTa achieved 61.5% accuracy.</li>
+          <li>Delivered actionable insights for real‑time user feedback analysis.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="section-title"><i class="fas fa-code"></i> Featured Projects</div>
+    <div class="card-grid">
+      <div class="card">
+        <h3>ROI Lens: Multi‑Touch Attribution</h3>
+        <div class="subtitle">E‑cell, IIT Guwahati <span class="date">May–Jun 2026</span></div>
+        <ul>
+          <li>Processed 566K ad events, cleaned 98K journeys via IQR bot detection.</li>
+          <li>Implemented Markov Chain &amp; Shapley models across 5 channels, replacing last‑click.</li>
+          <li>Reallocated ₹100 Cr budget by flagging 14 overfunded channels.</li>
+        </ul>
+        <div><span class="tag">Python</span><span class="tag">Shapley</span><span class="tag">Attribution</span></div>
+      </div>
+      <div class="card">
+        <h3>Decoding Customer Value</h3>
+        <div class="subtitle">Consulting &amp; Analytics Club <span class="date">Summer '26</span></div>
+        <ul>
+          <li>Segmented 3,900+ customers with SQL; built Power BI dashboard revealing $9K–12K leak.</li>
+          <li>Identified 778 "valuable but promo‑driven" loyal users with 66.5% discount usage.</li>
+          <li>Designed promo sunset &amp; "Subscribe &amp; Save" – projected +$7.5K–12K margin.</li>
+        </ul>
+        <div><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Retention</span></div>
+      </div>
+      <div class="card">
+        <h3>Meesho: Purchase Funnel Optimisation</h3>
+        <div class="subtitle">Personal Project <span class="date">Feb 2024</span></div>
+        <ul>
+          <li>Conducted user surveys &amp; journey mapping; found 71% distrust reviews, 64% choice overload.</li>
+          <li>Prioritised 3 features using impact matrix; defined OKRs and phased GTM strategy.</li>
+          <li>Targeted 50% drop in review clicks and 50% increase in post‑purchase conversions.</li>
+        </ul>
+        <div><span class="tag">User Research</span><span class="tag">GTM</span><span class="tag">OKRs</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section id="leadership">
+    <div class="section-title"><i class="fas fa-users"></i> Leadership &amp; Responsibility</div>
+    <div class="card-grid">
+      <div class="card">
+        <h3>PR &amp; Branding Head – SPIRIT 2025</h3>
+        <div class="subtitle">Northeast India's Largest Sports Fest <span class="date">2025–2026</span></div>
+        <ul>
+          <li>Co‑led 50+ member team; managed planning, finance, and outreach.</li>
+          <li>Built 100+ college links via cold calls, driving 60% growth in Campus Ambassador signups.</li>
+          <li>Organised pre‑fest events for 400+ participants, contributing to 5,000+ crowd and 133% revenue growth.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Core Team – Saathi Counselling Cell</h3>
+        <div class="subtitle">Welfare Board, IIT Guwahati <span class="date">2025–2026</span></div>
+        <ul>
+          <li>Led a 3‑day Ice Breaking event warmly welcoming 1,000+ freshers.</li>
+          <li>Organised "Unwind with Saathi" promoting mental wellbeing across hostels.</li>
+          <li>Executed "IITG Got Latent" – a campus‑wide creative talent engagement.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="section-title"><i class="fas fa-cogs"></i> Technical Skills</div>
+    <div class="card" style="background: #f9fafb; padding: 1.8rem;">
+      <div class="skill-group">
+        <h4>Programming &amp; Query</h4>
+        <div class="tags">
+          <span>Python</span><span>SQL (MySQL)</span><span>C++</span>
+          <span>Pandas</span><span>NumPy</span><span>MS Excel</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>ML &amp; Deep Learning</h4>
+        <div class="tags">
+          <span>Scikit‑learn</span><span>XGBoost</span><span>SHAP</span>
+          <span>imbalanced‑learn</span><span>TensorFlow</span><span>Keras</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Tools, Analysis &amp; Design</h4>
+        <div class="tags">
+          <span>Power BI</span><span>Matplotlib</span><span>Seaborn</span>
+          <span>Google Analytics</span><span>Figma</span><span>Canva</span><span>Notion</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section>
+    <div class="section-title"><i class="fas fa-trophy"></i> Achievements &amp; Extracurriculars</div>
+    <ul class="achievement-list">
+      <li><i class="fas fa-medal"></i> Top 10% – M&A Case Competition, FEC IITG (2026)</li>
+      <li><i class="fas fa-volleyball-ball"></i> Volleyball Club – Inter‑Hostel (4th place 2025, participant 2026)</li>
+      <li><i class="fas fa-calendar-alt"></i> Executive, SAIL – organised "Smriti", reunion of IITG's first batch</li>
+      <li><i class="fas fa-phone-alt"></i> PR Executive, SPIRIT – cold‑calling &amp; CA outreach (2024)</li>
+      <li><i class="fas fa-film"></i> Participant – Inter‑Hostel Filmmaking (script &amp; production)</li>
+      <li><i class="fas fa-bullhorn"></i> PR Associate, Alcheringa – campus outreach coordination</li>
+      <li><i class="fas fa-star"></i> Taluka Topper – 10th Board Examination (2020)</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-title"><i class="fas fa-envelope"></i> Let’s Connect</div>
+    <div class="contact-links">
+      <a href="mailto:r.badgar@iitg.ac.in"><i class="fas fa-envelope"></i> r.badgar@iitg.ac.in</a>
+      <a href="mailto:rushiprasadbadgar@gmail.com"><i class="fas fa-envelope"></i> rushiprasadbadgar@gmail.com</a>
+      <a href="#"><i class="fas fa-phone-alt"></i> +91-9529822967</a>
+      <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="#" target="_blank"><i class="fas fa-globe"></i> Portfolio</a>
+      <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    </div>
+    <p style="margin-top: 1.5rem; color: #6b7280; font-size: 0.9rem;">
+      <i class="fas fa-map-pin"></i> IIT Guwahati, Assam, India
+    </p>
+  </section>
+
+  <footer style="margin-top: 3rem; border-top: 1px solid #eee; padding-top: 1.5rem; text-align: center; color: #9ca3af; font-size: 0.85rem;">
+    &copy; 2026 Rushiprasad Badgar · Built with <i class="fas fa-heart" style="color: #2563eb;"></i> and HTML/CSS
+  </footer>
+
+</div>
+</body>
+</html>
